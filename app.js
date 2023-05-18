@@ -98,7 +98,7 @@ app.get("/directors/", async (request, response) => {
 //getmoviesbydirector
 app.get("/directors/:directorId/movies/", async (request, response) => {
   const { directorId } = request.params;
-  const getdirectormoviequery = `select * from d=movie naturaljoin director where director_id=${directorId};`;
+  const getdirectormoviequery = `select * from movie naturaljoin director where director_id=${directorId};`;
   const directormovie = await db.all(getdirectormoviequery);
   response.send(convertDbObjectToResponseObject(directormovie));
 });
